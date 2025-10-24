@@ -74,8 +74,7 @@
     "clean": "rimraf dist",
     "prepare": "npm run clean && npm run build",
     "prepublishOnly": "npm run lint && npm run test",
-    "version": "npm run clean && npm run build",
-    "publish": "npm run prepare && npm publish"
+    "version": "npm run clean && npm run build"
   },
   "keywords": [
     "whatsapp",

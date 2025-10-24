@@ -55,7 +55,7 @@ export class WebhooksHandler {
   handleWebhook(req: Request, res: Response): void {
     try {
       const body = req.body;
-      
+
       if (body.object === 'whatsapp_business_account') {
         if (body.entry && body.entry[0].changes && body.entry[0].changes[0].value.messages) {
           // Handle incoming messages
@@ -64,7 +64,7 @@ export class WebhooksHandler {
             this.messageCallbacks.forEach(callback => callback(message));
           });
         }
-        
+
         if (body.entry && body.entry[0].changes && body.entry[0].changes[0].value.statuses) {
           // Handle status updates
           const statuses = body.entry[0].changes[0].value.statuses;
@@ -73,7 +73,7 @@ export class WebhooksHandler {
           });
         }
       }
-      
+
       res.status(200).send('EVENT_RECEIVED');
     } catch (error) {
       this.authErrorCallbacks.forEach(callback => callback(error));
@@ -97,9 +97,9 @@ export class WebhooksHandler {
       const mode = req.query['hub.mode'] as string;
       const token = req.query['hub.verify_token'] as string;
       const challenge = req.query['hub.challenge'] as string;
-      
+
       const verifyToken = process.env.WEBHOOK_VERIFY_TOKEN || 'YOUR_VERIFY_TOKEN';
-      
+
       if (mode && token) {
         if (mode === 'subscribe' && token === verifyToken) {
           console.log('WEBHOOK_VERIFIED');

@@ -27,7 +27,7 @@ export class WhatsAppClient {
    * @param app_secret Your app secret (for partner solutions)
    */
   constructor(
-    phone_number_id: string, 
+    phone_number_id: string,
     access_token: string,
     private app_id?: string,
     private app_secret?: string

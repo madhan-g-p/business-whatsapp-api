@@ -5,7 +5,7 @@ export class FlowRequestBuilder {
     token: '',
     screen: '',
     data: {},
-    raw: {}
+    raw: {},
   };
 
   token(token: string): FlowRequestBuilder {
@@ -32,11 +32,11 @@ export class FlowRequestBuilder {
     if (!this.request.token) {
       throw new Error('Flow request token is required');
     }
-    
+
     if (!this.request.screen) {
       throw new Error('Flow request screen is required');
     }
-    
+
     return { ...this.request };
   }
 }
@@ -44,7 +44,7 @@ export class FlowRequestBuilder {
 export class FlowResponseBuilder {
   private response: FlowResponse = {
     id: '',
-    token: ''
+    token: '',
   };
 
   id(id: string): FlowResponseBuilder {
@@ -61,11 +61,11 @@ export class FlowResponseBuilder {
     if (!this.response.id) {
       throw new Error('Flow response ID is required');
     }
-    
+
     if (!this.response.token) {
       throw new Error('Flow response token is required');
     }
-    
+
     return { ...this.response };
   }
 }
@@ -78,9 +78,6 @@ export const flowResponse = () => new FlowResponseBuilder();
 export const defaultFlowRequestHandler: FlowRequestHandler = {
   async handle(request: FlowRequest): Promise<FlowResponse> {
     // Default implementation - just return a success response
-    return flowResponse()
-      .id(`flow_${Date.now()}`)
-      .token(request.token)
-      .build();
-  }
+    return flowResponse().id(`flow_${Date.now()}`).token(request.token).build();
+  },
 };

@@ -4,7 +4,7 @@ export class FlowCompletionBuilder {
   private completion: FlowCompletion = {
     token: '',
     data: {},
-    raw: {}
+    raw: {},
   };
 
   token(token: string): FlowCompletionBuilder {
@@ -26,7 +26,7 @@ export class FlowCompletionBuilder {
     if (!this.completion.token) {
       throw new Error('Flow completion token is required');
     }
-    
+
     return { ...this.completion };
   }
 }

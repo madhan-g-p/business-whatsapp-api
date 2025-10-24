@@ -13,24 +13,24 @@ export class Version {
   static checkMinGraphApi(version: string): boolean {
     const current = this.parseVersion(GRAPH_API_VERSION);
     const provided = this.parseVersion(version);
-    
+
     for (let i = 0; i < Math.min(current.length, provided.length); i++) {
       if (current[i] > provided[i]) return true;
       if (current[i] < provided[i]) return false;
     }
-    
+
     return current.length >= provided.length;
   }
 
   static checkMinFlowJson(version: string): boolean {
     const current = this.parseVersion(FLOW_JSON_VERSION);
     const provided = this.parseVersion(version);
-    
+
     for (let i = 0; i < Math.min(current.length, provided.length); i++) {
       if (current[i] > provided[i]) return true;
       if (current[i] < provided[i]) return false;
     }
-    
+
     return current.length >= provided.length;
   }
 

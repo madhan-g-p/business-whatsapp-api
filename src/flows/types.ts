@@ -69,5 +69,5 @@ export interface FlowRequestCallbackWrapper {
 export enum FlowRequestActionType {
   NEXT = 'next',
   BACK = 'back',
-  SUBMIT = 'submit'
+  SUBMIT = 'submit',
 }

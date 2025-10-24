@@ -1,9 +1,18 @@
-import { Template, TemplateComponent, TemplateParameter, Currency, DateTime, Button, ReplyButton, UrlButton } from './types';
+import {
+  Template,
+  TemplateComponent,
+  TemplateParameter,
+  Currency,
+  DateTime,
+  Button,
+  ReplyButton,
+  UrlButton,
+} from './types';
 
 export class TemplateBuilder {
   private template: Template = {
     name: '',
-    language: ''
+    language: '',
   };
 
   name(name: string): TemplateBuilder {
@@ -22,7 +31,7 @@ export class TemplateBuilder {
     }
     this.template.components.push({
       type: 'header',
-      parameters
+      parameters,
     });
     return this;
   }
@@ -33,7 +42,7 @@ export class TemplateBuilder {
     }
     this.template.components.push({
       type: 'body',
-      parameters
+      parameters,
     });
     return this;
   }
@@ -44,10 +53,12 @@ export class TemplateBuilder {
     }
     this.template.components.push({
       type: 'button',
-      parameters: [{
-        type: 'button',
-        button
-      }]
+      parameters: [
+        {
+          type: 'button',
+          button,
+        },
+      ],
     });
     return this;
   }
@@ -56,18 +67,18 @@ export class TemplateBuilder {
     if (!this.template.name) {
       throw new Error('Template name is required');
     }
-    
+
     if (!this.template.language) {
       throw new Error('Template language is required');
     }
-    
+
     return { ...this.template };
   }
 }
 
 export class TemplateParameterBuilder {
   private parameter: TemplateParameter = {
-    type: 'text'
+    type: 'text',
   };
 
   text(value: string): TemplateParameterBuilder {
@@ -92,7 +103,7 @@ export class TemplateParameterBuilder {
   dateTime(fallback_value: string): TemplateParameterBuilder {
     this.parameter.type = 'date_time';
     this.parameter.date_time = {
-      fallback_value
+      fallback_value,
     };
     return this;
   }
@@ -105,7 +116,7 @@ export class TemplateParameterBuilder {
 export class ReplyButtonBuilder {
   private button: ReplyButton = {
     id: '',
-    title: ''
+    title: '',
   };
 
   id(id: string): ReplyButtonBuilder {
@@ -122,18 +133,18 @@ export class ReplyButtonBuilder {
     if (!this.button.id) {
       throw new Error('Reply button ID is required');
     }
-    
+
     if (!this.button.title) {
       throw new Error('Reply button title is required');
     }
-    
+
     return { ...this.button };
   }
 }
 
 export class UrlButtonBuilder {
   private button: UrlButton = {
-    url: ''
+    url: '',
   };
 
   url(url: string): UrlButtonBuilder {
@@ -145,14 +156,14 @@ export class UrlButtonBuilder {
     if (!this.button.url) {
       throw new Error('URL button URL is required');
     }
-    
+
     return { ...this.button };
   }
 }
 
 export class ButtonBuilder {
   private button: Button = {
-    type: 'reply'
+    type: 'reply',
   };
 
   reply(reply: ReplyButton): ButtonBuilder {

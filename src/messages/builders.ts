@@ -1,14 +1,14 @@
-import { 
-  Message, 
-  TextMessage, 
-  ImageMessage, 
-  DocumentMessage, 
-  AudioMessage, 
-  VideoMessage, 
-  LocationMessage, 
+import {
+  Message,
+  TextMessage,
+  ImageMessage,
+  DocumentMessage,
+  AudioMessage,
+  VideoMessage,
+  LocationMessage,
   InteractiveMessage,
   SentMessage,
-  SentTemplate
+  SentTemplate,
 } from './types';
 
 export class TextMessageBuilder {
@@ -16,7 +16,7 @@ export class TextMessageBuilder {
     messaging_product: 'whatsapp',
     type: 'text',
     text: { body: '' },
-    to: ''
+    to: '',
   };
 
   to(phone_number: string): TextMessageBuilder {
@@ -39,7 +39,7 @@ export class ImageMessageBuilder {
     messaging_product: 'whatsapp',
     type: 'image',
     image: {},
-    to: ''
+    to: '',
   };
 
   to(phone_number: string): ImageMessageBuilder {
@@ -67,7 +67,7 @@ export class DocumentMessageBuilder {
     messaging_product: 'whatsapp',
     type: 'document',
     document: {},
-    to: ''
+    to: '',
   };
 
   to(phone_number: string): DocumentMessageBuilder {
@@ -100,7 +100,7 @@ export class AudioMessageBuilder {
     messaging_product: 'whatsapp',
     type: 'audio',
     audio: {},
-    to: ''
+    to: '',
   };
 
   to(phone_number: string): AudioMessageBuilder {
@@ -123,7 +123,7 @@ export class VideoMessageBuilder {
     messaging_product: 'whatsapp',
     type: 'video',
     video: {},
-    to: ''
+    to: '',
   };
 
   to(phone_number: string): VideoMessageBuilder {
@@ -152,9 +152,9 @@ export class LocationMessageBuilder {
     type: 'location',
     location: {
       longitude: '',
-      latitude: ''
+      latitude: '',
     },
-    to: ''
+    to: '',
   };
 
   to(phone_number: string): LocationMessageBuilder {

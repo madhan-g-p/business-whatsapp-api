@@ -1,7 +1,16 @@
 import { Update } from '../filters';
 
 export interface Handler {
-  type: 'message' | 'callback' | 'system' | 'phone_number_change' | 'identity_change' | 'status' | 'chat_opened' | 'user_preferences' | 'call';
+  type:
+    | 'message'
+    | 'callback'
+    | 'system'
+    | 'phone_number_change'
+    | 'identity_change'
+    | 'status'
+    | 'chat_opened'
+    | 'user_preferences'
+    | 'call';
   filter?: any;
   callback: (update: Update) => void | Promise<void>;
   priority?: number;
@@ -52,7 +61,13 @@ export interface CallHandler extends Handler {
   callback: (call: any) => void | Promise<void>;
 }
 
-export type HandlerType = MessageHandler | CallbackHandler | SystemHandler | 
-                         PhoneNumberChangeHandler | IdentityChangeHandler | 
-                         StatusHandler | ChatOpenedHandler | 
-                         UserPreferencesHandler | CallHandler;
+export type HandlerType =
+  | MessageHandler
+  | CallbackHandler
+  | SystemHandler
+  | PhoneNumberChangeHandler
+  | IdentityChangeHandler
+  | StatusHandler
+  | ChatOpenedHandler
+  | UserPreferencesHandler
+  | CallHandler;

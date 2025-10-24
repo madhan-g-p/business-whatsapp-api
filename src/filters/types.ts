@@ -7,11 +7,9 @@ export interface FilterTypeMessageFilter {
   fields?: string[];
 }
 
-type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
-  Pick<T, Exclude<keyof T, Keys>> &
+type RequireAtLeastOne<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
   {
-    [K in Keys]-?: Required<Pick<T, K>> &
-      Partial<Record<Exclude<Keys, K>, undefined>>;
+    [K in Keys]-?: Required<Pick<T, K>> & Partial<Record<Exclude<Keys, K>, undefined>>;
   }[Keys];
 
 interface BaseFilterOperator {
@@ -21,7 +19,6 @@ interface BaseFilterOperator {
 }
 
 export type FilterOperator = RequireAtLeastOne<BaseFilterOperator>;
-
 
 export interface BaseUpdate {
   id: string;
@@ -105,4 +102,13 @@ export interface Call extends BaseUpdate {
   };
 }
 
-export type Update = FilterMessage | Callback | SystemUpdate | PhoneNumberChange | IdentityChange | StatusUpdate | ChatOpened | UserPreferences | Call;
+export type Update =
+  | FilterMessage
+  | Callback
+  | SystemUpdate
+  | PhoneNumberChange
+  | IdentityChange
+  | StatusUpdate
+  | ChatOpened
+  | UserPreferences
+  | Call;

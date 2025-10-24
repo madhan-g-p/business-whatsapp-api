@@ -1,4 +1,4 @@
-import { api_version } from ".";
+import { api_version } from '..';
 
 export class Authentication {
   private access_token: string;
@@ -23,10 +23,10 @@ export class Authentication {
     try {
       const response = await fetch(`https://graph.facebook.com/${api_version}/me`, {
         headers: {
-          'Authorization': `Bearer ${this.access_token}`
-        }
+          Authorization: `Bearer ${this.access_token}`,
+        },
       });
-      
+
       return response.ok;
     } catch (error) {
       return false;

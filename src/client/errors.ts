@@ -20,7 +20,10 @@ export class AuthenticationError extends WhatsAppError {
 }
 
 export class APIError extends WhatsAppError {
-  constructor(message: string, public status?: number) {
+  constructor(
+    message: string,
+    public status?: number
+  ) {
     super(message);
     this.name = 'APIError';
   }

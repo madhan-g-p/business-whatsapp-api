@@ -117,5 +117,5 @@ export enum SentTemplateStatus {
   SENT = 'SENT',
   DELIVERED = 'DELIVERED',
   READ = 'READ',
-  FAILED = 'FAILED'
+  FAILED = 'FAILED',
 }

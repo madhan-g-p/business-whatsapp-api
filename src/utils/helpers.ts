@@ -27,7 +27,7 @@ export function throttle<T extends (...args: any[]) => any>(
     if (!inThrottle) {
       func(...args);
       inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
+      setTimeout(() => (inThrottle = false), limit);
     }
   };
 }
@@ -36,15 +36,15 @@ export function deepClone<T>(obj: T): T {
   if (obj === null || typeof obj !== 'object') {
     return obj;
   }
-  
+
   if (obj instanceof Date) {
     return new Date(obj.getTime()) as unknown as T;
   }
-  
+
   if (obj instanceof Array) {
     return obj.map(item => deepClone(item)) as unknown as T;
   }
-  
+
   if (typeof obj === 'object') {
     const clonedObj = {} as T;
     Object.keys(obj).forEach(key => {
@@ -52,6 +52,6 @@ export function deepClone<T>(obj: T): T {
     });
     return clonedObj;
   }
-  
+
   return obj;
 }

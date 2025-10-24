@@ -1,4 +1,4 @@
-import { api_version } from '.';
+import { api_version } from '..';
 export class WhatsAppAPI {
   private access_token: string;
   private base_url: string = `https://graph.facebook.com/${api_version}`;
@@ -18,10 +18,10 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(message)
+      body: JSON.stringify(message),
     });
 
     if (!response.ok) {
@@ -42,10 +42,10 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(template)
+      body: JSON.stringify(template),
     });
 
     if (!response.ok) {
@@ -63,7 +63,7 @@ export class WhatsAppAPI {
    */
   async getMessages(phone_number_id: string, filter?: any): Promise<any[]> {
     let url = `${this.base_url}/${phone_number_id}/messages`;
-    
+
     if (filter) {
       const params = new URLSearchParams();
       Object.keys(filter).forEach(key => {
@@ -76,8 +76,8 @@ export class WhatsAppAPI {
 
     const response: any[] | any = await fetch(url, {
       headers: {
-        'Authorization': `Bearer ${this.access_token}`
-      }
+        Authorization: `Bearer ${this.access_token}`,
+      },
     });
 
     if (!response.ok) {
@@ -95,7 +95,7 @@ export class WhatsAppAPI {
    */
   async uploadMedia(file: string | Buffer, phone_number_id: string): Promise<any> {
     const url = `${this.base_url}/${phone_number_id}/media`;
-    
+
     const formData = new FormData();
     if (typeof file === 'string') {
       // If it's a file path, read the file
@@ -110,9 +110,9 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`
+        Authorization: `Bearer ${this.access_token}`,
       },
-      body: formData
+      body: formData,
     });
 
     if (!response.ok) {
@@ -132,8 +132,8 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`
-      }
+        Authorization: `Bearer ${this.access_token}`,
+      },
     });
 
     if (!response.ok) {
@@ -153,10 +153,10 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(flow)
+      body: JSON.stringify(flow),
     });
 
     if (!response.ok) {
@@ -174,8 +174,8 @@ export class WhatsAppAPI {
     const url = `${this.base_url}/me/phone_numbers`;
     const response: any | any[] = await fetch(url, {
       headers: {
-        'Authorization': `Bearer ${this.access_token}`
-      }
+        Authorization: `Bearer ${this.access_token}`,
+      },
     });
 
     if (!response.ok) {
@@ -194,8 +194,8 @@ export class WhatsAppAPI {
     const url = `${this.base_url}/${phone_number_id}/whatsapp_business_profile`;
     const response = await fetch(url, {
       headers: {
-        'Authorization': `Bearer ${this.access_token}`
-      }
+        Authorization: `Bearer ${this.access_token}`,
+      },
     });
 
     if (!response.ok) {
@@ -216,10 +216,10 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(settings)
+      body: JSON.stringify(settings),
     });
 
     if (!response.ok) {
@@ -239,10 +239,10 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ about: { display_name } })
+      body: JSON.stringify({ about: { display_name } }),
     });
 
     if (!response.ok) {
@@ -260,8 +260,8 @@ export class WhatsAppAPI {
     const url = `${this.base_url}/me`;
     const response = await fetch(url, {
       headers: {
-        'Authorization': `Bearer ${this.access_token}`
-      }
+        Authorization: `Bearer ${this.access_token}`,
+      },
     });
 
     if (!response.ok) {
@@ -281,10 +281,10 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ phone_number })
+      body: JSON.stringify({ phone_number }),
     });
 
     if (!response.ok) {
@@ -304,8 +304,8 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`
-      }
+        Authorization: `Bearer ${this.access_token}`,
+      },
     });
 
     if (!response.ok) {
@@ -326,14 +326,14 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         messaging_product: 'whatsapp',
         status: 'read',
-        message_id: message_id
-      })
+        message_id: message_id,
+      }),
     });
 
     if (!response.ok) {
@@ -354,14 +354,14 @@ export class WhatsAppAPI {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${this.access_token}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${this.access_token}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         messaging_product: 'whatsapp',
         to: to,
-        typing: { status: 'typing' }
-      })
+        typing: { status: 'typing' },
+      }),
     });
 
     if (!response.ok) {

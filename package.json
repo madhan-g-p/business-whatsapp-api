@@ -2,65 +2,66 @@
   "name": "business-whatsapp-api",
   "version": "1.0.0",
   "description": "TypeScript SDK for WhatsApp Cloud API with ESM & CommonJS support",
-  "type": "module",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "type": "commonjs",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/esm/index.d.ts"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/types/index.d.ts"
     },
     "./package.json": "./package.json",
     "./messages": {
-      "import": "./dist/esm/messages/index.js",
-      "require": "./dist/cjs/messages/index.js",
-      "types": "./dist/esm/messages/index.d.ts"
+      "import": "./dist/esm/messages/index.mjs",
+      "require": "./dist/cjs/messages/index.cjs",
+      "types": "./dist/types/messages/index.d.ts"
     },
     "./templates": {
-      "import": "./dist/esm/templates/index.js",
-      "require": "./dist/cjs/templates/index.js",
-      "types": "./dist/esm/templates/index.d.ts"
+      "import": "./dist/esm/templates/index.mjs",
+      "require": "./dist/cjs/templates/index.cjs",
+      "types": "./dist/types/templates/index.d.ts"
     },
     "./flows": {
-      "import": "./dist/esm/flows/index.js",
-      "require": "./dist/cjs/flows/index.js",
-      "types": "./dist/esm/flows/index.d.ts"
+      "import": "./dist/esm/flows/index.mjs",
+      "require": "./dist/cjs/flows/index.cjs",
+      "types": "./dist/types/flows/index.d.ts"
     },
     "./filters": {
-      "import": "./dist/esm/filters/index.js",
-      "require": "./dist/cjs/filters/index.js",
-      "types": "./dist/esm/filters/index.d.ts"
+      "import": "./dist/esm/filters/index.mjs",
+      "require": "./dist/cjs/filters/index.cjs",
+      "types": "./dist/types/filters/index.d.ts"
     },
     "./handlers": {
-      "import": "./dist/esm/handlers/index.js",
-      "require": "./dist/cjs/handlers/index.js",
-      "types": "./dist/esm/handlers/index.d.ts"
+      "import": "./dist/esm/handlers/index.mjs",
+      "require": "./dist/cjs/handlers/index.cjs",
+      "types": "./dist/types/handlers/index.d.ts"
     },
     "./listeners": {
-      "import": "./dist/esm/listeners/index.js",
-      "require": "./dist/cjs/listeners/index.js",
-      "types": "./dist/esm/listeners/index.d.ts"
+      "import": "./dist/esm/listeners/index.mjs",
+      "require": "./dist/cjs/listeners/index.cjs",
+      "types": "./dist/types/listeners/index.d.ts"
     },
     "./utils": {
-      "import": "./dist/esm/utils/index.js",
-      "require": "./dist/cjs/utils/index.js",
-      "types": "./dist/esm/utils/index.d.ts"
+      "import": "./dist/esm/utils/index.mjs",
+      "require": "./dist/cjs/utils/index.cjs",
+      "types": "./dist/types/utils/index.d.ts"
     },
     "./types": {
-      "import": "./dist/esm/types/index.js",
-      "require": "./dist/cjs/types/index.js",
-      "types": "./dist/esm/types/index.d.ts"
+      "import": "./dist/esm/types/index.mjs",
+      "require": "./dist/cjs/types/index.cjs",
+      "types": "./dist/types/types/index.d.ts"
     },
     "./client": {
       "import": "./dist/esm/client/index.js",
-      "require": "./dist/cjs/client/index.js",
-      "types": "./dist/esm/client/index.d.ts"
+      "require": "./dist/cjs/client/index.cjs",
+      "types": "./dist/types/client/index.d.ts"
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "build": "node scripts/build.js",
+    "build:only": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "build:watch": "tsc -p tsconfig.esm.json --watch & tsc -p tsconfig.cjs.json --watch",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -88,7 +89,7 @@
     "async",
     "await"
   ],
-  "author": "business-whatsapp-api Contributors",
+  "author": "business-whatsapp-api Contributors (https://github.com/madhan-g-p)",
   "license": "MIT",
   "engines": {
     "node": ">=20"

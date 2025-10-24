@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "ESNext",
     "outDir": "./dist/esm",
-    "declarationDir": "./dist/esm",
+    "declarationDir": "./dist/types",
+    "declaration": true,
     "moduleResolution": "node",
     "sourceMap": true,
     "noEmit": false

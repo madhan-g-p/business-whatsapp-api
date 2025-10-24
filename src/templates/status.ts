@@ -7,7 +7,7 @@ export class TemplateStatusBuilder {
     category: '',
     language: '',
     created_at: '',
-    updated_at: ''
+    updated_at: '',
   };
 
   id(id: string): TemplateStatusBuilder {
@@ -44,15 +44,15 @@ export class TemplateStatusBuilder {
     if (!this.status.id) {
       throw new Error('Template status ID is required');
     }
-    
+
     if (!this.status.category) {
       throw new Error('Template status category is required');
     }
-    
+
     if (!this.status.language) {
       throw new Error('Template status language is required');
     }
-    
+
     return { ...this.status };
   }
 }

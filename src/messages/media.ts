@@ -15,7 +15,7 @@ export class MediaBuilder {
     id: '',
     sha256: '',
     mime_type: '',
-    file_size: 0
+    file_size: 0,
   };
 
   id(id: string): MediaBuilder {
@@ -42,15 +42,15 @@ export class MediaBuilder {
     if (!this.media.id) {
       throw new Error('Media ID is required');
     }
-    
+
     if (!this.media.sha256) {
       throw new Error('Media SHA256 is required');
     }
-    
+
     if (!this.media.mime_type) {
       throw new Error('Media MIME type is required');
     }
-    
+
     return { ...this.media };
   }
 }

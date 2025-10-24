@@ -1,7 +1,20 @@
-import { FilterMessage, Callback, SystemUpdate, PhoneNumberChange, IdentityChange, StatusUpdate, ChatOpened, UserPreferences, Call } from './types';
+import {
+  FilterMessage,
+  Callback,
+  SystemUpdate,
+  PhoneNumberChange,
+  IdentityChange,
+  StatusUpdate,
+  ChatOpened,
+  UserPreferences,
+  Call,
+} from './types';
 
 export function isMessage(update: any): update is FilterMessage {
-  return update.type && ['text', 'image', 'document', 'audio', 'video', 'location', 'interactive'].includes(update.type);
+  return (
+    update.type &&
+    ['text', 'image', 'document', 'audio', 'video', 'location', 'interactive'].includes(update.type)
+  );
 }
 
 export function isCallback(update: any): update is Callback {
@@ -38,24 +51,26 @@ export function isCall(update: any): update is Call {
 
 export function matchesText(update: FilterMessage, text: string | string[]): boolean {
   if (!isMessage(update)) return false;
-  
+
   if (Array.isArray(text)) {
     return text.some(t => update.text?.body?.includes(t));
   }
-  
+
   return update.text?.body?.includes(text);
 }
 
 export function matchesCommand(update: FilterMessage, command: string | string[]): boolean {
   if (!isMessage(update)) return false;
-  
+
   const commands = Array.isArray(command) ? command : [command];
-  return commands.some(cmd => update.text?.body?.startsWith(`/${cmd}`) || update.text?.body?.startsWith(`!${cmd}`));
+  return commands.some(
+    cmd => update.text?.body?.startsWith(`/${cmd}`) || update.text?.body?.startsWith(`!${cmd}`)
+  );
 }
 
 export function matchesCallback(update: Callback, callback_data: string | string[]): boolean {
   if (!isCallback(update)) return false;
-  
+
   const data = Array.isArray(callback_data) ? callback_data : [callback_data];
   return data.some(d => update.callback_data?.includes(d));
 }

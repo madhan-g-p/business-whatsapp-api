@@ -4,7 +4,7 @@ import { ListenerType } from './types';
 export function waitForReply(filter?: any, timeout?: number): MethodDecorator {
   return function (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
-    
+
     descriptor.value = function (client: WhatsAppClient, ...args: any[]) {
       const listener: ListenerType = {
         id: `reply_${Date.now()}`,
@@ -17,12 +17,12 @@ export function waitForReply(filter?: any, timeout?: number): MethodDecorator {
             return await originalMethod.call(this, update);
           }
           return false;
-        }
+        },
       };
-      
+
       client.addListener(listener);
     };
-    
+
     return descriptor;
   };
 }
@@ -30,7 +30,7 @@ export function waitForReply(filter?: any, timeout?: number): MethodDecorator {
 export function waitForClick(filter?: any, timeout?: number): MethodDecorator {
   return function (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
-    
+
     descriptor.value = function (client: WhatsAppClient, ...args: any[]) {
       const listener: ListenerType = {
         id: `click_${Date.now()}`,
@@ -43,12 +43,12 @@ export function waitForClick(filter?: any, timeout?: number): MethodDecorator {
             return await originalMethod.call(this, update);
           }
           return false;
-        }
+        },
       };
-      
+
       client.addListener(listener);
     };
-    
+
     return descriptor;
   };
 }
@@ -56,7 +56,7 @@ export function waitForClick(filter?: any, timeout?: number): MethodDecorator {
 export function waitForReaction(filter?: any, timeout?: number): MethodDecorator {
   return function (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
-    
+
     descriptor.value = function (client: WhatsAppClient, ...args: any[]) {
       const listener: ListenerType = {
         id: `reaction_${Date.now()}`,
@@ -69,12 +69,12 @@ export function waitForReaction(filter?: any, timeout?: number): MethodDecorator
             return await originalMethod.call(this, update);
           }
           return false;
-        }
+        },
       };
-      
+
       client.addListener(listener);
     };
-    
+
     return descriptor;
   };
 }
@@ -82,7 +82,7 @@ export function waitForReaction(filter?: any, timeout?: number): MethodDecorator
 export function waitForStatus(filter?: any, timeout?: number): MethodDecorator {
   return function (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
-    
+
     descriptor.value = function (client: WhatsAppClient, ...args: any[]) {
       const listener: ListenerType = {
         id: `status_${Date.now()}`,
@@ -95,12 +95,12 @@ export function waitForStatus(filter?: any, timeout?: number): MethodDecorator {
             return await originalMethod.call(this, update);
           }
           return false;
-        }
+        },
       };
-      
+
       client.addListener(listener);
     };
-    
+
     return descriptor;
   };
 }
@@ -108,7 +108,7 @@ export function waitForStatus(filter?: any, timeout?: number): MethodDecorator {
 export function waitForCall(filter?: any, timeout?: number): MethodDecorator {
   return function (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
-    
+
     descriptor.value = function (client: WhatsAppClient, ...args: any[]) {
       const listener: ListenerType = {
         id: `call_${Date.now()}`,
@@ -121,12 +121,12 @@ export function waitForCall(filter?: any, timeout?: number): MethodDecorator {
             return await originalMethod.call(this, update);
           }
           return false;
-        }
+        },
       };
-      
+
       client.addListener(listener);
     };
-    
+
     return descriptor;
   };
 }

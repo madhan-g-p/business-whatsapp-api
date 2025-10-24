@@ -8,7 +8,7 @@ export function wrapHandler(handler: HandlerType): (update: Update) => Promise<v
       if (handler.filter && !matchesFilter(update, handler.filter)) {
         return;
       }
-      
+
       // Execute handler
       await handler.callback(update);
     } catch (error) {
@@ -20,20 +20,20 @@ export function wrapHandler(handler: HandlerType): (update: Update) => Promise<v
 function matchesFilter(update: Update, filter: any): boolean {
   // Implement filter matching logic
   // This is a simplified version - in a real implementation, you'd have more complex logic
- 
- if ("from" in update) {
+
+  if ('from' in update) {
     if (filter.from && update.from !== filter.from) {
       return false;
     }
   }
 
-  if ("to" in update) {
+  if ('to' in update) {
     if (filter.to && update.to !== filter.to) {
       return false;
     }
   }
-  
+
   // Add more filter conditions as needed
-  
+
   return true;
 }

@@ -121,7 +121,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/madhan-g-p/business-whatsapp-api.git"
+    "url": "git+https://github.com/madhan-g-p/business-whatsapp-api.git"
   },
   "bugs": {
     "url": "https://github.com/madhan-g-p/business-whatsapp-api/issues"
@@ -130,8 +130,14 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "roots": ["<rootDir>/src", "<rootDir>/tests"],
-    "testMatch": ["**/__tests__/**/*.ts", "**/?(*.)+(spec|test).ts"],
+    "roots": [
+      "<rootDir>/src",
+      "<rootDir>/tests"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.ts",
+      "**/?(*.)+(spec|test).ts"
+    ],
     "transform": {
       "^.+\\.ts$": "ts-jest"
     },
@@ -141,6 +147,10 @@
       "!src/index.ts"
     ],
     "coverageDirectory": "coverage",
-    "coverageReporters": ["text", "lcov", "html"]
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ]
   }
 }

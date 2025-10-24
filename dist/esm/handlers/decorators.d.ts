@@ -1,0 +1,9 @@
+export declare function onMessage(filter?: any): MethodDecorator;
+export declare function onCallback(filter?: any): MethodDecorator;
+export declare function onSystem(filter?: any): MethodDecorator;
+export declare function onPhoneNumberChange(filter?: any): MethodDecorator;
+export declare function onIdentityChange(filter?: any): MethodDecorator;
+export declare function onStatus(filter?: any): MethodDecorator;
+export declare function onChatOpened(filter?: any): MethodDecorator;
+export declare function onUserPreferences(filter?: any): MethodDecorator;
+export declare function onCall(filter?: any): MethodDecorator;
